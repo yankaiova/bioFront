@@ -155,7 +155,7 @@ const eslintConfig = tseslint.config(
   typescriptConfig,
   reactConfig,
   jsxA11yConfig,
-  eslintConfigPrettier
+  eslintConfigPrettier,
 );
 
 eslintConfig.map((config) => {
