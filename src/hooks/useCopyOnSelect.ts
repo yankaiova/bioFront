@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-export const useCopyOnSelect = (delay: number): { copied: boolean } => {
-  const [copied, setCopied] = useState<boolean>(false);
+export const useCopyOnSelect = (delay: number): { isCopied: boolean } => {
+  const [isCopied, setIsCopied] = useState<boolean>(false);
 
-  const handleMouseUp = async (): Promise<void> => {
+  const handleMouseUp = useCallback(async () => {
     const selection = window.getSelection();
     if (!selection || selection.isCollapsed) return;
 
@@ -12,17 +12,20 @@ export const useCopyOnSelect = (delay: number): { copied: boolean } => {
 
     try {
       await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), delay);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), delay);
     } catch {
       console.log("Ошибка при копировании");
     }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mouseup", handleMouseUp);
-    return () => document.removeEventListener("mouseup", handleMouseUp);
   }, [delay]);
 
-  return { copied };
+  useEffect(() => {
+    const listener = () => {
+      void handleMouseUp();
+    };
+    document.addEventListener("mouseup", listener);
+    return () => document.removeEventListener("mouseup", listener);
+  }, [handleMouseUp]);
+
+  return { isCopied };
 };
