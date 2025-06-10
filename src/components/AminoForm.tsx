@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { useState, type FC } from "react";
 import type * as yup from "yup";
 
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,17 +7,19 @@ import { useForm } from "react-hook-form";
 
 import { schema } from "../lib/constans/validate";
 import { BaseInputAmino } from "./BaseInput";
+import { AminoView } from "./AminoView";
 
 export type FormValues = yup.InferType<typeof schema>;
 
 export const AminoForm: FC = () => {
+  const [result, setResult] = useState<FormValues | null>(null);
   const { control, handleSubmit } = useForm<FormValues>({
     resolver: yupResolver(schema),
     defaultValues: { seq1: "", seq2: "" },
   });
 
   const onSubmit = (data: FormValues) => {
-    console.log(data);
+    setResult(data);
   };
   return (
     <Box>
@@ -34,6 +36,7 @@ export const AminoForm: FC = () => {
         />
         <Button type="submit">Отправить</Button>
       </form>
+      {result ? <AminoView seq1={result.seq1} seq2={result.seq2} /> : null}
     </Box>
   );
 };
