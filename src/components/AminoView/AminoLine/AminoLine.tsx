@@ -17,10 +17,12 @@ export const AminoLine: FC<AminoLineProps> = ({
   return (
     <div
       style={{
-        display: "flex",
-        flexWrap: "wrap",
         position: "relative",
         zIndex: 2,
+        display: "inline",
+        whiteSpace: "pre-wrap",
+        wordBreak: "break-word",
+        overflowWrap: "anywhere",
       }}
     >
       {str.map((char, index) => {
@@ -40,6 +42,7 @@ export const AminoLine: FC<AminoLineProps> = ({
               lineHeight: 1.5,
               userSelect: "text",
               textAlign: "center",
+              minWidth: "1ch",
               display: "inline-block",
             }}
           >

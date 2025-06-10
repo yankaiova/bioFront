@@ -17,11 +17,14 @@ export const AminoView: FC<AminoViewProps> = ({ seq1, seq2 }) => {
   return (
     <>
       <Box
-        style={{
+        sx={{
           display: "flex",
           flexDirection: "column",
-          gap: 4,
-          marginTop: 20,
+          gap: 2,
+          marginTop: 5,
+          fontFamily: "monospace",
+          wordBreak: "break-word",
+          overflowWrap: "anywhere",
         }}
       >
         <div style={{ position: "relative" }}>
