@@ -1,11 +1,9 @@
-import './App.css'
+import type { FC } from "react";
 
-function App() {
+import "./App.css";
 
-  return (
-    <>
-    </>
-  )
-}
+import { AminoForm } from "./components/AminoForm";
 
-export default App
+export const App: FC = () => {
+  return <AminoForm />;
+};
