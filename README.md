@@ -1,54 +1,32 @@
-# React + TypeScript + Vite
+# Инструмент для визуализации выравнивания аминокислотных последовательностей.
+# Основной функционал:
+- Инструмент должен содержит 2 инпута для ввода аминокислотных последовательностей и кнопку, по клику по которой ниже должна появляется визуализация выравнивания.
+- Валидация инпутов (обязательны для заполнения, могут содержать только латинские буквы аминокислот (A, R, N, D, C, E, Q, G, H, I, L, K, M, F, P, S, T, W, Y, V) и символ -, проверка на одинаковую длину введенных последовательностей).
+- В верхней строке каждая буква окрашена фоном в свой цвет в соответствии со свойствами аминокислот. В нижней строке фоном выделены только буквы, отличающиеся от соответствующей по индексу буквы в строке выше.
+- Адаптивность и перенос на другую строку при сужении экрана.
+- *На странице должен корректно работает встроенный поиск по части последовательности (при помощи ctrl+F).
+- *При выделении мышкой части последовательности она копируется в буфер обмена и появляется всплывающее уведомление о том, что последовательность скопирована.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Использованы:
+- [x] React
+- [x] Typescript
+- [x] Material UI
+- [x] react-hook-form + yup
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+# Инструкция для запуска
+Клонируете репозиторий
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
+git clone https://github.com/yankaiova/bioFront.git
 ```
+Выполнить запуск оприложения
+```
+npm install
+npm run dev
+```
+![image](https://github.com/user-attachments/assets/148b039b-36c7-4ffb-96b2-4e8a8602cb09)
+
+![image](https://github.com/user-attachments/assets/c1f45daa-3570-485e-b821-c7227451f287)
+
+
+![image](https://github.com/user-attachments/assets/3ffe65bc-5f91-4cb0-b793-0aecdf833c11)
+
