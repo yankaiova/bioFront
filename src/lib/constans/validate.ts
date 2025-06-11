@@ -11,7 +11,7 @@ export const schema: yup.ObjectSchema<
     .required("Обязательное поле")
     .matches(
       VALID_REG_EXP,
-      "Допустимые только символы аминокислот: латинские буквы ARNDCEQGHILKMFPSTWYV и -"
+      "Допустимые только символы аминокислот: латинские буквы ARNDCEQGHILKMFPSTWYV и -",
     )
     .test(
       "len",
@@ -19,14 +19,14 @@ export const schema: yup.ObjectSchema<
       function (value) {
         const parent = this.parent as { seq2?: string };
         return value.length === parent.seq2?.length;
-      }
+      },
     ),
   seq2: yup
     .string()
     .required("Обязательное поле")
     .matches(
       VALID_REG_EXP,
-      "Допустимые только символы аминокислот: латинские буквы ARNDCEQGHILKMFPSTWYV и -"
+      "Допустимые только символы аминокислот: латинские буквы ARNDCEQGHILKMFPSTWYV и -",
     )
     .test(
       "len",
@@ -34,6 +34,6 @@ export const schema: yup.ObjectSchema<
       function (value) {
         const parent = this.parent as { seq1?: string };
         return value.length === parent.seq1?.length;
-      }
+      },
     ),
 });

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export const useCopyOnSelect = (
-  delay = 1000
+  delay = 1000,
 ): { isCopied: boolean; handleMouseUp: () => void } => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const timeoutRef = useRef<number | null>(null);

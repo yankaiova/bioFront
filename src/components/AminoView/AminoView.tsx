@@ -1,5 +1,7 @@
 import type { FC } from "react";
+
 import { Box, Snackbar } from "@mui/material";
+
 import { useCopyOnSelect } from "../../hooks/useCopyOnSelect";
 import { getColor } from "../../lib/utils/getColor";
 
@@ -19,10 +21,10 @@ export const AminoView: FC<AminoViewProps> = ({ seq1, seq2 }) => {
   const linesCount = Math.ceil(seq1.length / CHARS_PER_LINE);
 
   const lines1 = Array.from({ length: linesCount }, (_, i) =>
-    seq1.slice(i * CHARS_PER_LINE, (i + 1) * CHARS_PER_LINE)
+    seq1.slice(i * CHARS_PER_LINE, (i + 1) * CHARS_PER_LINE),
   );
   const lines2 = Array.from({ length: linesCount }, (_, i) =>
-    seq2.slice(i * CHARS_PER_LINE, (i + 1) * CHARS_PER_LINE)
+    seq2.slice(i * CHARS_PER_LINE, (i + 1) * CHARS_PER_LINE),
   );
 
   return (
